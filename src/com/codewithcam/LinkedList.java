@@ -7,69 +7,60 @@ public class LinkedList {
 
     public void print() {
         Node node = first;
-        while (!(node == last)) {
+//        int count = 0;
+
+        while (!(node.getNext() == null)) {
             System.out.println(node.getValue());
+//            count++;
             node = node.getNext();
         }
-    }
-
-    public Node getFirst() {
-        return first;
-    }
-
-    public void setFirst(Node first) {
-        this.first = first;
-    }
-
-    public Node getLast() {
-        return last;
-    }
-
-    public void setLast(Node last) {
-        this.last = last;
+        System.out.println(node.getValue());
     }
 
     public void addFirst(int value) {
-        if (this.getFirst() == null)
-            this.first =
-        this.first = new Node(value, this.getFirst());
+        Node node = new Node(value, first);
+        if (first == null)
+            last = node;
+        first = node;
     }
 
     public void addLast(int value) {
         Node newLast = new Node(value, null);
-        if (this.last == null)
-            this.last = newLast;
+        if (last != null)
+            last.setNext(newLast);
         else
-            this.last.setNext(newLast);
-
-        this.setLast(newLast);
+            first = newLast;
+        last = newLast;
     }
 
     public void deleteFirst() {
-        this.setFirst(this.first.getNext());
-        this.first.setNext(null);
+        Node newFirst = first.getNext();
+        first.setNext(null);
+        first = newFirst;
     }
 
     public void deleteLast() {
-        Node node = this.first;
-        while (!(node == last))
+        Node node = first;
+        while (!(node.getNext() == last))
             node = node.getNext();
-        this.setLast(node);
-//        May need to set value of second last node to null for it to be garbage collected
+        node.setNext(null);
+        last = node;
     }
 
     public boolean contains(int value) {
-        Node node = this.first;
+        Node node = first;
         while (!(node == last)) {
             if (node.getValue() == value)
                 return true;
             node = node.getNext();
         }
+        if (node.getValue() == value)
+            return true;
         return false;
     }
 
     public int indexOf(int value) {
-        Node node = this.first;
+        Node node = first;
         int count = 0;
         while (!(node == last)) {
             if (node.getValue() == value)
@@ -77,6 +68,9 @@ public class LinkedList {
             node = node.getNext();
             count++;
         }
+        if (node.getValue() == value)
+            return count;
+
         return -1;
     }
 

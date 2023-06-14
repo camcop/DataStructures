@@ -36,7 +36,19 @@ public class Main {
 //        list.print();
         list.addLast(20);
         list.addLast(30);
+        list.addFirst(0);
+        list.addLast(40);
+//        list.print();
+        list.deleteFirst();
+//        list.print();
+        list.deleteLast();
+        System.out.println(list.contains(20));
+        System.out.println(list.contains(30));
         list.print();
+
+        System.out.println(list.indexOf(10));
+        System.out.println(list.indexOf(20));
+        System.out.println(list.indexOf(30));
     }
 
 }
