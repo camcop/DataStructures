@@ -2,74 +2,80 @@ package com.codewithcam;
 
 public class LinkedList {
 
+    private class Node {
+
+        private int value;
+        private Node next;
+
+        public Node(int value) {
+            this.value = value;
+        }
+        public Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
+        }
+
+    }
+
     private Node first;
     private Node last;
 
     public void print() {
         Node node = first;
-//        int count = 0;
 
-        while (!(node.getNext() == null)) {
-            System.out.println(node.getValue());
-//            count++;
-            node = node.getNext();
+        while (!(node == null)) {
+            System.out.println(node.value);
+            node = node.next;
         }
-        System.out.println(node.getValue());
+    }
+
+    public boolean isEmpty() {
+        return first == null;
     }
 
     public void addFirst(int value) {
         Node node = new Node(value, first);
-        if (first == null)
+        if (isEmpty())
             last = node;
         first = node;
     }
 
     public void addLast(int value) {
-        Node newLast = new Node(value, null);
-        if (last != null)
-            last.setNext(newLast);
+        Node node = new Node(value);
+        if (!isEmpty())
+            last.next = node;
         else
-            first = newLast;
-        last = newLast;
+            first = node;
+        last = node;
     }
 
     public void deleteFirst() {
-        Node newFirst = first.getNext();
-        first.setNext(null);
+        Node newFirst = first.next;
+        first.next = null;
         first = newFirst;
     }
 
     public void deleteLast() {
         Node node = first;
-        while (!(node.getNext() == last))
-            node = node.getNext();
-        node.setNext(null);
+        while (!(node.next == last))
+            node = node.next;
+        node.next = null;
         last = node;
     }
 
     public boolean contains(int value) {
-        Node node = first;
-        while (!(node == last)) {
-            if (node.getValue() == value)
-                return true;
-            node = node.getNext();
-        }
-        if (node.getValue() == value)
-            return true;
-        return false;
+        return indexOf(value) != -1;
     }
 
     public int indexOf(int value) {
         Node node = first;
         int count = 0;
-        while (!(node == last)) {
-            if (node.getValue() == value)
+        while (!(node == null)) {
+            if (node.value == value)
                 return count;
-            node = node.getNext();
+            node = node.next;
             count++;
         }
-        if (node.getValue() == value)
-            return count;
 
         return -1;
     }
