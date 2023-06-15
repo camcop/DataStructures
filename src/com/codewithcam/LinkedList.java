@@ -1,5 +1,7 @@
 package com.codewithcam;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList {
 
     private class Node {
@@ -50,6 +52,13 @@ public class LinkedList {
     }
 
     public void deleteFirst() {
+        if (isEmpty()) throw new NoSuchElementException();
+
+        if (first == last) {
+            first = last = null;
+            return;
+        }
+
         Node newFirst = first.next;
         first.next = null;
         first = newFirst;
