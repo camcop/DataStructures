@@ -65,6 +65,13 @@ public class LinkedList {
     }
 
     public void deleteLast() {
+        if (isEmpty()) throw new NoSuchElementException();
+
+        if (first == last) {
+            first = last = null;
+            return;
+        }
+
         Node node = first;
         while (!(node.next == last))
             node = node.next;
