@@ -1,5 +1,7 @@
 package com.codewithcam;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -51,6 +53,9 @@ public class Main {
         System.out.println(list.indexOf(30));
 
         System.out.println(list.contains(20));
+
+        int[] array = list.toArray();
+        System.out.println(Arrays.toString(array));
     }
 
 }
