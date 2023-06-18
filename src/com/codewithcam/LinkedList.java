@@ -8,10 +8,10 @@ public class LinkedList {
 
         private int value;
         private Node next;
-
         public Node(int value) {
             this.value = value;
         }
+
         public Node(int value, Node next) {
             this.value = value;
             this.next = next;
@@ -21,6 +21,7 @@ public class LinkedList {
 
     private Node first;
     private Node last;
+    private int size;
 
     public void print() {
         Node node = first;
@@ -40,6 +41,7 @@ public class LinkedList {
         if (isEmpty())
             last = node;
         first = node;
+        size++;
     }
 
     public void addLast(int value) {
@@ -49,6 +51,7 @@ public class LinkedList {
         else
             first = node;
         last = node;
+        size++;
     }
 
     public void deleteFirst() {
@@ -56,12 +59,12 @@ public class LinkedList {
 
         if (first == last) {
             first = last = null;
-            return;
+        } else {
+            Node newFirst = first.next;
+            first.next = null;
+            first = newFirst;
         }
-
-        Node newFirst = first.next;
-        first.next = null;
-        first = newFirst;
+        size--;
     }
 
     public void deleteLast() {
@@ -69,14 +72,14 @@ public class LinkedList {
 
         if (first == last) {
             first = last = null;
-            return;
+        } else {
+            Node node = first;
+            while (!(node.next == last))
+                node = node.next;
+            node.next = null;
+            last = node;
         }
-
-        Node node = first;
-        while (!(node.next == last))
-            node = node.next;
-        node.next = null;
-        last = node;
+        size--;
     }
 
     public boolean contains(int value) {
@@ -96,5 +99,8 @@ public class LinkedList {
         return -1;
     }
 
+    public int size() {
+        return size;
+    }
 
 }
