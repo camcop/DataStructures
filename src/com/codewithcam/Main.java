@@ -56,6 +56,13 @@ public class Main {
 
         int[] array = list.toArray();
         System.out.println(Arrays.toString(array));
+
+        list.reverse();
+        list.print();
+
+        list.addFirst(9);
+        list.addLast(99);
+        list.print();
     }
 
 }
