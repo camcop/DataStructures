@@ -115,4 +115,20 @@ public class LinkedList {
         return array;
     }
 
+    public void reverse() {
+        if (isEmpty()) return;
+
+        Node previous = null;
+        Node current = first;
+        while (current != null) {
+            Node next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        last = first;
+        first = previous;
+
+    }
+
 }
