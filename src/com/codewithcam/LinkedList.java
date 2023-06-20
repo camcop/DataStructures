@@ -132,12 +132,13 @@ public class LinkedList {
     }
 
     public int getKthFromTheEnd(int k) {
-        if ((k < 1) || (k > size)) throw new NoSuchElementException();
+        if (isEmpty()) throw new IllegalStateException();
 
         Node one = first;
         Node two = first;
         for (int i = 0; i < k - 1; i++) {
             two = two.next;
+            if (two == null) throw new IllegalArgumentException();
         }
 
         while (two.next != null) {
@@ -145,6 +146,27 @@ public class LinkedList {
             two = two.next;
         }
         return one.value;
+
+    }
+
+    public void printMiddle() {
+
+        Node a = first;
+        Node b = first;
+
+        boolean even = false;
+        while (b != last) {
+            even = true;
+            b = b.next;
+            if (b == last) break;
+            a = a.next;
+            even = false;
+            b = b.next;
+        }
+        System.out.println(a.value);
+        if (even) {
+            System.out.println(a.next.value);
+        }
 
     }
 

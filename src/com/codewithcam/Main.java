@@ -1,7 +1,5 @@
 package com.codewithcam;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -44,27 +42,30 @@ public class Main {
         list.deleteFirst();
 //        list.print();
         list.deleteLast();
-        System.out.println(list.contains(20));
-        System.out.println(list.contains(30));
-        list.print();
+//        System.out.println(list.contains(20));
+//        System.out.println(list.contains(30));
+//        list.print();
 
-        System.out.println(list.indexOf(10));
-        System.out.println(list.indexOf(20));
-        System.out.println(list.indexOf(30));
+//        System.out.println(list.indexOf(10));
+//        System.out.println(list.indexOf(20));
+//        System.out.println(list.indexOf(30));
 
-        System.out.println(list.contains(20));
+//        System.out.println(list.contains(20));
 
         int[] array = list.toArray();
-        System.out.println(Arrays.toString(array));
+//        System.out.println(Arrays.toString(array));
 
         list.reverse();
-        list.print();
+//        list.print();
 
         list.addFirst(9);
         list.addLast(99);
-        list.print();
+        list.addLast(999);
 
-        System.out.println(list.getKthFromTheEnd(2));
+//        System.out.println(list.getKthFromTheEnd(2));
+
+        list.print();
+        list.printMiddle();
     }
 
 }
