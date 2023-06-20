@@ -64,10 +64,10 @@ public class Main {
 
 //        System.out.println(list.getKthFromTheEnd(2));
 
-//        list.print();
-//        list.printMiddle();
+        list.print();
+        list.printMiddle();
 
-        System.out.println(list.hasLoop());
+//        System.out.println(list.hasLoop());
     }
 
 }

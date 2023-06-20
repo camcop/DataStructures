@@ -150,6 +150,7 @@ public class LinkedList {
     }
 
     public void printMiddle() {
+        if (isEmpty()) throw new IllegalStateException();
 
         Node a = first;
         Node b = first;
@@ -171,6 +172,7 @@ public class LinkedList {
     }
 
     public boolean hasLoop() {
+//        Check working
         if (last.next == first) return true;
 
         Node a = first;
