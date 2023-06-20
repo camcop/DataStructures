@@ -170,4 +170,19 @@ public class LinkedList {
 
     }
 
+    public boolean hasLoop() {
+        if (last.next == first) return true;
+
+        Node a = first;
+        Node b = first;
+
+        while ((b.next != null) && (b.next.next != null)) {
+            if (b.next == a) return true;
+            b = b.next;
+            b = b.next;
+            a = a.next;
+        }
+        return false;
+    }
+
 }
