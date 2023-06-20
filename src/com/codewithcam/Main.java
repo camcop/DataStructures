@@ -63,6 +63,8 @@ public class Main {
         list.addFirst(9);
         list.addLast(99);
         list.print();
+
+        System.out.println(list.getKthFromTheEnd(2));
     }
 
 }

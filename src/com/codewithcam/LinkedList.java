@@ -131,4 +131,21 @@ public class LinkedList {
 
     }
 
+    public int getKthFromTheEnd(int k) {
+        if ((k < 1) || (k > size)) throw new NoSuchElementException();
+
+        Node one = first;
+        Node two = first;
+        for (int i = 0; i < k - 1; i++) {
+            two = two.next;
+        }
+
+        while (two.next != null) {
+            one = one.next;
+            two = two.next;
+        }
+        return one.value;
+
+    }
+
 }
