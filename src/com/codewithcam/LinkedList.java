@@ -172,7 +172,7 @@ public class LinkedList {
     }
 
     public boolean hasLoop() {
-//        Check working
+//        TODO: Test this method
         if (last.next == first) return true;
 
         Node a = first;
@@ -180,8 +180,7 @@ public class LinkedList {
 
         while ((b.next != null) && (b.next.next != null)) {
             if (b.next == a) return true;
-            b = b.next;
-            b = b.next;
+            b = b.next.next;
             a = a.next;
         }
         return false;
