@@ -5,16 +5,18 @@ import java.util.Stack;
 public class StringReverser {
 
     public String reverse(String string) {
+        if (string == null) throw new IllegalArgumentException();
 
         Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < string.length(); i++)
-            stack.push(string.charAt(i));
+        for (char c : string.toCharArray())
+            stack.push(c);
 
-        String out = "";
+        StringBuffer out = new StringBuffer();
+
         while (!stack.empty())
-            out = String.join("", out, stack.pop().toString());
+            out.append(stack.pop());
 
-        return out;
+        return out.toString();
 
     }
 

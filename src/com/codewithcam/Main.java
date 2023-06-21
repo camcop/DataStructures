@@ -69,7 +69,7 @@ public class Main {
 
 //        System.out.println(list.hasLoop());
 
-        String a = "abcdef";
+        String a = "abcde";
         StringReverser s = new StringReverser();
         System.out.println(s.reverse(a));
     }
