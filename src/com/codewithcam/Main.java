@@ -71,7 +71,12 @@ public class Main {
 
         String a = "abcde";
         StringReverser s = new StringReverser();
-        System.out.println(s.reverse(a));
+//        System.out.println(s.reverse(a));
+
+        BracketChecker bc = new BracketChecker();
+        String test = "((({}<>[])))()";
+        System.out.println(bc.check(test));
+
     }
 
 }
