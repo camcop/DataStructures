@@ -1,5 +1,7 @@
 package com.codewithcam;
 
+import java.util.Stack;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -64,10 +66,26 @@ public class Main {
 
 //        System.out.println(list.getKthFromTheEnd(2));
 
-        list.print();
-        list.printMiddle();
+//        list.print();
+//        list.printMiddle();
 
 //        System.out.println(list.hasLoop());
+
+        String a = "abc";
+        System.out.println(reverseString(a));
+    }
+
+    public static String reverseString(String string) {
+
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < string.length(); i++)
+            stack.push(string.charAt(i));
+
+        String out = "";
+        while (!stack.empty())
+            out = String.join("", out, stack.pop().toString());
+
+        return out;
     }
 
 }
