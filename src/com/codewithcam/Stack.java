@@ -1,5 +1,7 @@
 package com.codewithcam;
 
+import java.util.Arrays;
+
 public class Stack {
 
     private int[] array;
@@ -33,6 +35,12 @@ public class Stack {
 
     public int peek() {
         return array[count - 1];
+    }
+
+    @Override
+    public String toString() {
+        int[] content = Arrays.copyOfRange(array, 0, count);
+        return Arrays.toString(content);
     }
 
 }
