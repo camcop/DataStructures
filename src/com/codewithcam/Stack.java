@@ -12,7 +12,7 @@ public class Stack {
     public void push(int value) {
         if (count == array.length) {
             int[] newArray = new int[array.length * 2];
-            for (int i = 0; i < array.length; i++) {
+            for (int i = 0; i < count; i++) {
                 newArray[i] = array[i];
             }
             newArray[count++] = value;
@@ -24,9 +24,7 @@ public class Stack {
 
     public int pop() {
         if (isEmpty()) throw new IllegalStateException();
-        int last = array[count - 1];
-        array[--count] = 0;
-        return last;
+        return array[--count];
     }
 
     public boolean isEmpty() {
