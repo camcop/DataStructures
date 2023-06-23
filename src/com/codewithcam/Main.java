@@ -75,7 +75,14 @@ public class Main {
 
         BracketChecker bc = new BracketChecker();
         String test = "((({}<>[])))()";
-        System.out.println(bc.check(test));
+//        System.out.println(bc.check(test));
+
+        Stack stack = new Stack(4);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
 
     }
 
