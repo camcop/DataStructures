@@ -20,7 +20,13 @@ public class Stack {
         } else {
             array[count++] = value;
         }
+    }
 
+    public int pop() {
+        if (count == 0) throw new IllegalStateException();
+        int last = array[count - 1];
+        array[--count] = 0;
+        return last;
     }
 
 }
