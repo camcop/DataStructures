@@ -23,10 +23,18 @@ public class Stack {
     }
 
     public int pop() {
-        if (count == 0) throw new IllegalStateException();
+        if (isEmpty()) throw new IllegalStateException();
         int last = array[count - 1];
         array[--count] = 0;
         return last;
+    }
+
+    public boolean isEmpty() {
+        return count == 0;
+    }
+
+    public int peek() {
+        return array[count - 1];
     }
 
 }
