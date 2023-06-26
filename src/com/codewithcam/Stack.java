@@ -12,16 +12,16 @@ public class Stack {
     }
 
     public void push(int value) {
-        if (count == array.length) {
-            int[] newArray = new int[array.length * 2];
-            for (int i = 0; i < count; i++) {
-                newArray[i] = array[i];
-            }
-            newArray[count++] = value;
-            array = newArray;
-        } else {
-            array[count++] = value;
+        if (count == array.length) throw new StackOverflowError();
+        array[count++] = value;
+    }
+
+    public void resize() {
+        int[] newArray = new int[array.length * 2];
+        for (int i = 0; i < count; i++) {
+            newArray[i] = array[i];
         }
+        array = newArray;
     }
 
     public int pop() {
@@ -34,6 +34,7 @@ public class Stack {
     }
 
     public int peek() {
+        if (isEmpty()) throw new IllegalStateException();
         return array[count - 1];
     }
 
