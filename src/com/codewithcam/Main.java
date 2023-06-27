@@ -89,23 +89,29 @@ public class Main {
 //        System.out.println(queue);
 //        System.out.println(reverse(queue));
 
-        ArrayQueue queue = new ArrayQueue();
-        System.out.println(queue.isEmpty());
+//        ArrayQueue queue = new ArrayQueue();
+//        System.out.println(queue.isEmpty());
+//        queue.enqueue(10);
+//        System.out.println(queue.isEmpty());
+//        queue.enqueue(20);
+//        queue.enqueue(30);
+//        queue.enqueue(40);
+//        System.out.println(queue.isFull());
+//        queue.enqueue(50);
+//        System.out.println(queue.isFull());
+//        System.out.println(queue.peek());
+//        queue.dequeue();
+//        queue.dequeue();
+//        queue.dequeue();
+//        queue.enqueue(60);
+//        System.out.println(queue.peek());
+
+        StackQueue queue = new StackQueue();
         queue.enqueue(10);
-        System.out.println(queue.isEmpty());
         queue.enqueue(20);
         queue.enqueue(30);
-        queue.enqueue(40);
-        System.out.println(queue.isFull());
-        queue.enqueue(50);
-        System.out.println(queue.isFull());
+        System.out.println(queue.dequeue());
         System.out.println(queue.peek());
-        queue.dequeue();
-        queue.dequeue();
-        queue.dequeue();
-        queue.enqueue(60);
-        System.out.println(queue.peek());
-
 
     }
 
