@@ -17,7 +17,9 @@ public class ArrayQueue {
     }
 
     public void enqueue(int item) {
-        if (isFull()) throw new StackOverflowError();
+        if (isFull()) throw new IllegalStateException();
+
+//        TODO: replace this with circular array logic
         if (front != 0) {
             for (int i = --front; i < rear - 1; i++)
                 items[i] = items[i + 1];
