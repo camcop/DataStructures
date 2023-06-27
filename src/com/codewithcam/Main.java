@@ -1,6 +1,5 @@
 package com.codewithcam;
 
-import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Main {
@@ -31,17 +30,17 @@ public class Main {
 //        array2.insertAt(90, 0);
 //        array2.print();
 
-        LinkedList list = new LinkedList();
-        list.addFirst(10);
+//        LinkedList list = new LinkedList();
+//        list.addFirst(10);
 //        list.print();
-        list.addLast(20);
-        list.addLast(30);
-        list.addFirst(0);
-        list.addLast(40);
+//        list.addLast(20);
+//        list.addLast(30);
+//        list.addFirst(0);
+//        list.addLast(40);
 //        list.print();
-        list.deleteFirst();
+//        list.deleteFirst();
 //        list.print();
-        list.deleteLast();
+//        list.deleteLast();
 //        System.out.println(list.contains(20));
 //        System.out.println(list.contains(30));
 //        list.print();
@@ -49,24 +48,24 @@ public class Main {
 //        System.out.println(list.indexOf(20));
 //        System.out.println(list.indexOf(30));
 //        System.out.println(list.contains(20));
-        int[] array = list.toArray();
+//        int[] array = list.toArray();
 //        System.out.println(Arrays.toString(array));
-        list.reverse();
+//        list.reverse();
 //        list.print();
-        list.addFirst(9);
-        list.addLast(99);
-        list.addLast(999);
+//        list.addFirst(9);
+//        list.addLast(99);
+//        list.addLast(999);
 //        System.out.println(list.getKthFromTheEnd(2));
 //        list.print();
 //        list.printMiddle();
 //        System.out.println(list.hasLoop());
 
-        String a = "abcde";
-        StringReverser s = new StringReverser();
+//        String a = "abcde";
+//        StringReverser s = new StringReverser();
 //        System.out.println(s.reverse(a));
 
-        BracketChecker bc = new BracketChecker();
-        String test = "((({}<>[])))()";
+//        BracketChecker bc = new BracketChecker();
+//        String test = "((({}<>[])))()";
 //        System.out.println(bc.check(test));
 
 //        Stack stack = new Stack(4);
@@ -82,13 +81,30 @@ public class Main {
 //        System.out.println(stack.peek());
 //        System.out.println(stack.toString());
 
-        Queue<Integer> queue = new ArrayDeque<>();
-        queue.add(10);
-        queue.add(20);
-        queue.add(30);
-        queue.add(40);
-        System.out.println(queue);
-        System.out.println(reverse(queue));
+//        Queue<Integer> queue = new ArrayDeque<>();
+//        queue.add(10);
+//        queue.add(20);
+//        queue.add(30);
+//        queue.add(40);
+//        System.out.println(queue);
+//        System.out.println(reverse(queue));
+
+        ArrayQueue queue = new ArrayQueue();
+        System.out.println(queue.isEmpty());
+        queue.enqueue(10);
+        System.out.println(queue.isEmpty());
+        queue.enqueue(20);
+        queue.enqueue(30);
+        queue.enqueue(40);
+        System.out.println(queue.isFull());
+        queue.enqueue(50);
+        System.out.println(queue.isFull());
+        System.out.println(queue.peek());
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.enqueue(60);
+        System.out.println(queue.peek());
 
 
     }
