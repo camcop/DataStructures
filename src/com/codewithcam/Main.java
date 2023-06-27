@@ -111,7 +111,16 @@ public class Main {
         queue.enqueue(20);
         queue.enqueue(30);
         System.out.println(queue.dequeue());
-        System.out.println(queue.peek());
+        System.out.println(queue.dequeue());
+//        System.out.println(queue.dequeue());
+        queue.enqueue(40);
+        queue.enqueue(50);
+//        queue.enqueue(60);
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+
+        //        System.out.println(queue.peek());
 
     }
 
