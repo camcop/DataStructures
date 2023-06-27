@@ -1,5 +1,8 @@
 package com.codewithcam;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -14,7 +17,6 @@ public class Main {
 //        array.print();
 //        System.out.println(array.indexOf(40));
 //        System.out.println(array.max());
-//
 //        Array array2 = new Array(4);
 //        array2.insert(10);
 //        array2.insert(10);
@@ -24,10 +26,8 @@ public class Main {
 //        array2.insert(50);
 //        Array intersection = array.intersect(array2);
 //        intersection.print();
-//
 //        array2.reverse();
 //        array2.print();
-//
 //        array2.insertAt(90, 0);
 //        array2.print();
 
@@ -45,28 +45,20 @@ public class Main {
 //        System.out.println(list.contains(20));
 //        System.out.println(list.contains(30));
 //        list.print();
-
 //        System.out.println(list.indexOf(10));
 //        System.out.println(list.indexOf(20));
 //        System.out.println(list.indexOf(30));
-
 //        System.out.println(list.contains(20));
-
         int[] array = list.toArray();
 //        System.out.println(Arrays.toString(array));
-
         list.reverse();
 //        list.print();
-
         list.addFirst(9);
         list.addLast(99);
         list.addLast(999);
-
 //        System.out.println(list.getKthFromTheEnd(2));
-
 //        list.print();
 //        list.printMiddle();
-
 //        System.out.println(list.hasLoop());
 
         String a = "abcde";
@@ -77,22 +69,41 @@ public class Main {
         String test = "((({}<>[])))()";
 //        System.out.println(bc.check(test));
 
-        Stack stack = new Stack(4);
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
+//        Stack stack = new Stack(4);
+//        stack.push(1);
+//        stack.push(2);
+//        stack.push(3);
 //        stack.push(4);
 //        stack.push(5);
-
 //        System.out.println(stack.pop());
 //        System.out.println(stack.pop());
 //        System.out.println(stack.pop());
+//        System.out.println(stack.peek());
+//        System.out.println(stack.peek());
+//        System.out.println(stack.toString());
 
-        System.out.println(stack.peek());
-        System.out.println(stack.peek());
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.add(10);
+        queue.add(20);
+        queue.add(30);
+        queue.add(40);
+        System.out.println(queue);
+        System.out.println(reverse(queue));
 
-        System.out.println(stack.toString());
 
+    }
+
+
+    public static Queue<Integer> reverse(Queue<Integer> queue) {
+
+        Stack stack = new Stack();
+        while (!queue.isEmpty())
+            stack.push(queue.remove());
+
+        while (!stack.isEmpty())
+            queue.add(stack.pop());
+
+        return queue;
 
     }
 

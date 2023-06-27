@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 public class Stack {
 
-    private int[] array;
+    private int[] array = new int[5];
     private int count;
 
-    public Stack(int length) {
-        array = new int[length];
-    }
+//    public Stack(int length) {
+//        array = new int[length];
+//    }
 
     public void push(int value) {
         if (count == array.length) throw new StackOverflowError();
