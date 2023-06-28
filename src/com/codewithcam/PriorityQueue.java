@@ -8,17 +8,14 @@ public class PriorityQueue {
     public void insert(int item) {
         if (isFull()) throw new IllegalStateException();
 
-        if (isEmpty())
-            items[0] = item;
-
-        for (int i = count++ - 1; i >= 0; i--) {
+        int i;
+        for (i = count++ - 1; i >= 0; i--) {
             if (item < items[i]) {
                 items[i + 1] = items[i];
-            } else {
-                items[i + 1] = item;
+            } else
                 break;
-            }
         }
+        items[i + 1] = item;
     }
 
     public int remove() {
