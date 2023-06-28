@@ -8,32 +8,28 @@ public class PriorityQueue {
     public void insert(int item) {
         if (isFull()) throw new IllegalStateException();
 
-        if (isEmpty()) {
+        if (isEmpty())
             items[0] = item;
-            count++;
-            return;
-        }
 
-        for (int i = count - 1; i >= 0; i--) {
+        for (int i = count++ - 1; i >= 0; i--) {
             if (item < items[i]) {
                 items[i + 1] = items[i];
-//            } else if (item > items[i]) {
             } else {
                 items[i + 1] = item;
                 break;
             }
         }
-        count++;
     }
 
     public int remove() {
         if (isEmpty()) throw new IllegalStateException();
 
         int next = items[0];
-        for (int i = 0; i < count; i++) {
+
+        for (int i = 0; i < count - 1; i++)
             items[i] = items[i + 1];
-        }
-        count--;
+
+        items[--count] = 0;
         return next;
     }
 

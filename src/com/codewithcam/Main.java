@@ -123,9 +123,13 @@ public class Main {
 
         PriorityQueue pq = new PriorityQueue();
         pq.insert(1);
-//        pq.insert(3);
+        pq.insert(4);
+        pq.insert(4);
+        pq.insert(1);
+        pq.insert(3);
 //        pq.insert(5);
 //        pq.insert(2);
+        System.out.println(pq.remove());
         System.out.println(pq.remove());
         System.out.println(pq.remove());
         System.out.println(pq.remove());
