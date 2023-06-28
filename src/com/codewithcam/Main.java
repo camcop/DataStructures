@@ -106,21 +106,30 @@ public class Main {
 //        queue.enqueue(60);
 //        System.out.println(queue.peek());
 
-        StackQueue queue = new StackQueue();
-        queue.enqueue(10);
-        queue.enqueue(20);
-        queue.enqueue(30);
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
+//        StackQueue queue = new StackQueue();
+//        queue.enqueue(10);
+//        queue.enqueue(20);
+//        queue.enqueue(30);
 //        System.out.println(queue.dequeue());
-        queue.enqueue(40);
-        queue.enqueue(50);
+//        System.out.println(queue.dequeue());
+//        System.out.println(queue.dequeue());
+//        queue.enqueue(40);
+//        queue.enqueue(50);
 //        queue.enqueue(60);
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
+//        System.out.println(queue.dequeue());
+//        System.out.println(queue.dequeue());
+//        System.out.println(queue.dequeue());
+//        System.out.println(queue.peek());
 
-        //        System.out.println(queue.peek());
+        PriorityQueue pq = new PriorityQueue();
+        pq.insert(1);
+//        pq.insert(3);
+//        pq.insert(5);
+//        pq.insert(2);
+        System.out.println(pq.remove());
+        System.out.println(pq.remove());
+        System.out.println(pq.remove());
+        System.out.println(pq.remove());
 
     }
 
