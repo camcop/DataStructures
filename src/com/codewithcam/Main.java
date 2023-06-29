@@ -89,15 +89,15 @@ public class Main {
 //        System.out.println(queue);
 //        System.out.println(reverse(queue));
 
-//        ArrayQueue queue = new ArrayQueue();
+        ArrayQueue queue = new ArrayQueue();
 //        System.out.println(queue.isEmpty());
-//        queue.enqueue(10);
+        queue.enqueue(10);
 //        System.out.println(queue.isEmpty());
-//        queue.enqueue(20);
-//        queue.enqueue(30);
-//        queue.enqueue(40);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        queue.enqueue(40);
 //        System.out.println(queue.isFull());
-//        queue.enqueue(50);
+        queue.enqueue(50);
 //        System.out.println(queue.isFull());
 //        System.out.println(queue.peek());
 //        queue.dequeue();
@@ -121,19 +121,23 @@ public class Main {
 //        System.out.println(queue.dequeue());
 //        System.out.println(queue.peek());
 
-        PriorityQueue pq = new PriorityQueue();
-        pq.insert(1);
-        pq.insert(4);
-        pq.insert(4);
-        pq.insert(1);
-        pq.insert(3);
+//        PriorityQueue pq = new PriorityQueue();
+//        pq.insert(1);
+//        pq.insert(4);
+//        pq.insert(4);
+//        pq.insert(1);
+//        pq.insert(3);
 //        pq.insert(5);
 //        pq.insert(2);
-        System.out.println(pq.remove());
-        System.out.println(pq.remove());
-        System.out.println(pq.remove());
-        System.out.println(pq.remove());
-        System.out.println(pq.remove());
+//        System.out.println(pq.remove());
+//        System.out.println(pq.remove());
+//        System.out.println(pq.remove());
+//        System.out.println(pq.remove());
+//        System.out.println(pq.remove());
+
+        System.out.println(queue);
+        ArrayQueue q = QueueReverser.reverse(queue, 3);
+        System.out.println(q);
 
     }
 

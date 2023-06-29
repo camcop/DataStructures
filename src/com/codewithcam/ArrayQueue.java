@@ -1,5 +1,6 @@
 package com.codewithcam;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class ArrayQueue {
@@ -37,6 +38,11 @@ public class ArrayQueue {
     public int peek() {
         if (isEmpty()) throw new NoSuchElementException();
         return items[front];
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(items);
     }
 
 }
