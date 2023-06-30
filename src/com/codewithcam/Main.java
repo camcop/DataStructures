@@ -89,15 +89,15 @@ public class Main {
 //        System.out.println(queue);
 //        System.out.println(reverse(queue));
 
-        ArrayQueue queue = new ArrayQueue();
+//        ArrayQueue queue = new ArrayQueue();
 //        System.out.println(queue.isEmpty());
-        queue.enqueue(10);
+//        queue.enqueue(10);
 //        System.out.println(queue.isEmpty());
-        queue.enqueue(20);
-        queue.enqueue(30);
-        queue.enqueue(40);
+//        queue.enqueue(20);
+//        queue.enqueue(30);
+//        queue.enqueue(40);
 //        System.out.println(queue.isFull());
-        queue.enqueue(50);
+//        queue.enqueue(50);
 //        System.out.println(queue.isFull());
 //        System.out.println(queue.peek());
 //        queue.dequeue();
@@ -139,15 +139,20 @@ public class Main {
 //        ArrayQueue q = QueueReverser.reverse(queue, 3);
 //        System.out.println(q);
 
-        StackWithTwoQueues stack = new StackWithTwoQueues();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
-        System.out.println(stack.pop());
-        System.out.println(stack.peek());
-        System.out.println(stack.isEmpty());
-        System.out.println(stack.size());
+//        StackWithTwoQueues stack = new StackWithTwoQueues();
+//        stack.push(1);
+//        stack.push(2);
+//        stack.push(3);
+//        stack.push(4);
+//        stack.push(5);
+//        System.out.println(stack.pop());
+//        System.out.println(stack.pop());
+//        System.out.println(stack.peek());
+//        System.out.println(stack.isEmpty());
+//        System.out.println(stack.size());
+
+        System.out.println(CharFinder.findFirstNonRepeatingCharacter("a green apple"));
+        System.out.println(CharFinder.findFirstNonRepeatingCharacter("aabb"));
 
 
     }
@@ -165,5 +170,6 @@ public class Main {
         return queue;
 
     }
+
 
 }
