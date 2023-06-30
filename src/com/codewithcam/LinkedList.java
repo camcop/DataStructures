@@ -54,8 +54,10 @@ public class LinkedList {
         size++;
     }
 
-    public void deleteFirst() {
+    public int deleteFirst() {
         if (isEmpty()) throw new NoSuchElementException();
+
+        int value = first.value;
 
         if (first == last) {
             first = last = null;
@@ -65,10 +67,14 @@ public class LinkedList {
             first = newFirst;
         }
         size--;
+
+        return value;
     }
 
-    public void deleteLast() {
+    public int deleteLast() {
         if (isEmpty()) throw new NoSuchElementException();
+
+        int value = last.value;
 
         if (first == last) {
             first = last = null;
@@ -80,6 +86,8 @@ public class LinkedList {
             last = node;
         }
         size--;
+
+        return value;
     }
 
     public boolean contains(int value) {
@@ -184,6 +192,14 @@ public class LinkedList {
             a = a.next;
         }
         return false;
+    }
+
+    public int getFirst() {
+        return first.value;
+    }
+
+    public int getLast() {
+        return last.value;
     }
 
 }
