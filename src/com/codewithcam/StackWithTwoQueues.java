@@ -9,7 +9,6 @@ public class StackWithTwoQueues {
     private Queue<Integer> queue2 = new ArrayDeque<>();
 
     public void push(Integer value) {
-//        queue1.addFirst(value);
         if (queue1.isEmpty()) {
             queue1.add(value);
             while (!queue2.isEmpty()) {
@@ -21,11 +20,9 @@ public class StackWithTwoQueues {
                 queue2.add(queue1.remove());
             }
         }
-        return;
     }
 
     public Integer pop() {
-//        return queue1.removeFirst();
         if (isEmpty()) throw new IllegalStateException();
         if (queue1.isEmpty())
             return queue2.remove();
@@ -34,26 +31,18 @@ public class StackWithTwoQueues {
     }
 
     public Integer peek() {
-//        return queue1.peek();
-        if (isEmpty()) return null;
+        if (isEmpty()) throw new IllegalStateException();
         if (queue1.isEmpty())
             return queue2.peek();
         else
             return queue1.peek();
-
     }
 
     public Integer size() {
-//        return queue1.size();
-        if (queue1.isEmpty())
-            return queue2.size();
-        else
-            return queue1.size();
-
+        return queue1.size() + queue2.size();
     }
 
     public boolean isEmpty() {
-//        return queue1.isEmpty();
         return (queue1.isEmpty() && queue2.isEmpty());
     }
 
