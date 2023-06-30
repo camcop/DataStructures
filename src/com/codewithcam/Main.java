@@ -151,8 +151,10 @@ public class Main {
 //        System.out.println(stack.isEmpty());
 //        System.out.println(stack.size());
 
-        System.out.println(CharFinder.findFirstNonRepeatingCharacter("a green apple"));
-        System.out.println(CharFinder.findFirstNonRepeatingCharacter("aabb"));
+//        System.out.println(CharFinder.findFirstNonRepeatingCharacter("a green apple"));
+//        System.out.println(CharFinder.findFirstNonRepeatingCharacter("aabb"));
+        System.out.println(CharFinder.findFirstRepeatingCharacter("a green apple"));
+        System.out.println(CharFinder.findFirstRepeatingCharacter("abba"));
 
 
     }
