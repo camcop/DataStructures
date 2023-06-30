@@ -135,9 +135,20 @@ public class Main {
 //        System.out.println(pq.remove());
 //        System.out.println(pq.remove());
 
-        System.out.println(queue);
-        ArrayQueue q = QueueReverser.reverse(queue, 3);
-        System.out.println(q);
+//        System.out.println(queue);
+//        ArrayQueue q = QueueReverser.reverse(queue, 3);
+//        System.out.println(q);
+
+        StackWithTwoQueues stack = new StackWithTwoQueues();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
+        System.out.println(stack.isEmpty());
+        System.out.println(stack.size());
+
 
     }
 
