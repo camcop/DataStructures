@@ -50,17 +50,19 @@ public class HashTable {
         throw new NoSuchElementException();
     }
 
-    public String remove(int key) {
+    public void remove(int key) {
         int hash = hash(key);
-        int i = 0;
+
         LinkedList<Entry> linkedList = list[hash];
-        Entry entry = linkedList.element();
-        while (entry.key != key && i < linkedList.size())
-            entry = linkedList.get(++i);
-        if (entry.key == key) {
-            return linkedList.remove(i).value;
-        }
-        throw new NoSuchElementException();
+        if (linkedList == null) throw new IllegalStateException();
+
+        for (Entry entry : linkedList)
+            if (entry.key == key) {
+                linkedList.remove(entry);
+                return;
+            }
+
+        throw new IllegalStateException();
     }
 
 }
