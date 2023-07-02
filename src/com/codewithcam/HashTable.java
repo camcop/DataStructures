@@ -42,13 +42,11 @@ public class HashTable {
 
     public String get(int key) {
         int hash = hash(key);
-        int i = 0;
         LinkedList<Entry> linkedList = list[hash];
         if (linkedList == null) throw new NoSuchElementException();
-        Entry entry = linkedList.element();
-        while (entry.key != key && i < linkedList.size())
-            entry = linkedList.get(i++);
-        if (entry.key == key) return entry.value;
+        for (Entry entry : linkedList)
+            if (entry.key == key)
+                return entry.value;
         throw new NoSuchElementException();
     }
 

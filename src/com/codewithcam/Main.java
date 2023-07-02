@@ -159,17 +159,17 @@ public class Main {
 
         HashTable table = new HashTable();
         table.put(1, "a green");
-//        System.out.println(table.get(1));
+        System.out.println(table.get(1));
         table.put(2, "apple");
         table.put(3, "tree");
         table.put(9, "fruit");
-        table.put(4, "a blue");
+        table.put(1, "a blue");
         table.put(5, "a blue");
         table.put(6, "a blue");
         table.put(7, "a blue");
-//        System.out.println(table.get(1));
-//        System.out.println(table.get(2));
-//        System.out.println(table.get(3));
+        System.out.println(table.get(1));
+        System.out.println(table.get(2));
+        System.out.println(table.get(3));
         System.out.println(table.get(9));
         System.out.println(table.remove(9));
 //        System.out.println(table.get(10));
