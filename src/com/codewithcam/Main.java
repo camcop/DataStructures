@@ -153,8 +153,26 @@ public class Main {
 
 //        System.out.println(CharFinder.findFirstNonRepeatingCharacter("a green apple"));
 //        System.out.println(CharFinder.findFirstNonRepeatingCharacter("aabb"));
-        System.out.println(CharFinder.findFirstRepeatingCharacter("a green apple"));
-        System.out.println(CharFinder.findFirstRepeatingCharacter("abba"));
+//        System.out.println(CharFinder.findFirstRepeatingCharacter("a green apple"));
+//        System.out.println(CharFinder.findFirstRepeatingCharacter("abba"));
+
+
+        HashTable table = new HashTable();
+        table.put(1, "a green");
+//        System.out.println(table.get(1));
+        table.put(2, "apple");
+        table.put(3, "tree");
+        table.put(9, "fruit");
+        table.put(4, "a blue");
+        table.put(5, "a blue");
+        table.put(6, "a blue");
+        table.put(7, "a blue");
+//        System.out.println(table.get(1));
+//        System.out.println(table.get(2));
+//        System.out.println(table.get(3));
+        System.out.println(table.get(9));
+        System.out.println(table.remove(9));
+//        System.out.println(table.get(10));
 
 
     }
