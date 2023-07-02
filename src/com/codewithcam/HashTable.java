@@ -28,16 +28,16 @@ public class HashTable {
 
     public void put(int key, String value) {
         int hash = hash(key);
-        Entry entry = new Entry(key, value);
         if (list[hash] == null)
             list[hash] = new LinkedList<>();
+
         for (Entry existing : list[hash]) {
-            if (existing.key == entry.key) {
-                existing.value = entry.value;
+            if (existing.key == key) {
+                existing.value = value;
                 return;
             }
         }
-        list[hash].add(entry);
+        list[hash].add(new Entry(key, value));
     }
 
     public String get(int key) {
