@@ -172,6 +172,7 @@ public class Main {
         System.out.println(table.get(3));
         System.out.println(table.get(9));
         table.remove(9);
+        table.remove(9);
         System.out.println(table.get(9));
 
 

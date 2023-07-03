@@ -1,7 +1,6 @@
 package com.codewithcam;
 
 import java.util.LinkedList;
-import java.util.NoSuchElementException;
 
 public class HashTable {
 
@@ -21,48 +20,56 @@ public class HashTable {
     private LinkedList<Entry>[] list = new LinkedList[MAX_ENTRIES];
 
 
-    private int hash(int key) {
-//        return ((key + Integer.parseInt(value)) % MAX_ENTRIES);
-        return (key % MAX_ENTRIES);
-    }
-
     public void put(int key, String value) {
-        int hash = hash(key);
-        if (list[hash] == null)
-            list[hash] = new LinkedList<>();
-
-        for (Entry existing : list[hash]) {
-            if (existing.key == key) {
-                existing.value = value;
-                return;
-            }
+        Entry entry = getEntry(key);
+        if (entry != null) {
+            entry.value = value;
+            return;
         }
-        list[hash].add(new Entry(key, value));
+
+        getOrCreateBucket(key).add(new Entry(key, value));
+
     }
 
     public String get(int key) {
-        int hash = hash(key);
-        LinkedList<Entry> linkedList = list[hash];
-        if (linkedList == null) throw new NoSuchElementException();
-        for (Entry entry : linkedList)
-            if (entry.key == key)
-                return entry.value;
-        throw new NoSuchElementException();
+        Entry entry = getEntry(key);
+
+        return entry == null ? null : entry.value;
     }
 
     public void remove(int key) {
-        int hash = hash(key);
-
-        LinkedList<Entry> linkedList = list[hash];
-        if (linkedList == null) throw new IllegalStateException();
-
-        for (Entry entry : linkedList)
-            if (entry.key == key) {
-                linkedList.remove(entry);
-                return;
-            }
-
-        throw new IllegalStateException();
+        Entry entry = getEntry(key);
+        if (entry == null) throw new IllegalStateException();
+        getBucket(key).remove(entry);
     }
+
+    private int hash(int key) {
+        return (key % MAX_ENTRIES);
+    }
+
+    private LinkedList<Entry> getBucket(int key) {
+        return list[hash(key)];
+    }
+
+    private LinkedList<Entry> getOrCreateBucket(int key) {
+        LinkedList<Entry> linkedList = getBucket(key);
+        if (linkedList == null)
+            list[hash(key)] = new LinkedList<>();
+
+        return list[hash(key)];
+    }
+
+    private Entry getEntry(int key) {
+        LinkedList<Entry> list = getBucket(key);
+
+        if (list != null) {
+            for (Entry entry : list)
+                if (entry.key == key)
+                    return entry;
+        }
+
+        return null;
+    }
+
 
 }
