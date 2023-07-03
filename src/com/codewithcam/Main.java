@@ -156,24 +156,28 @@ public class Main {
 //        System.out.println(CharFinder.findFirstRepeatingCharacter("a green apple"));
 //        System.out.println(CharFinder.findFirstRepeatingCharacter("abba"));
 
+//        HashTable table = new HashTable();
+//        table.put(1, "a green");
+//        System.out.println(table.get(1));
+//        table.put(2, "apple");
+//        table.put(3, "tree");
+//        table.put(9, "fruit");
+//        table.put(1, "a blue");
+//        table.put(5, "a blue");
+//        table.put(6, "a blue");
+//        table.put(7, "a blue");
+//        System.out.println(table.get(1));
+//        System.out.println(table.get(2));
+//        System.out.println(table.get(3));
+//        System.out.println(table.get(9));
+//        table.remove(9);
+//        table.remove(9);
+//        System.out.println(table.get(9));
 
-        HashTable table = new HashTable();
-        table.put(1, "a green");
-        System.out.println(table.get(1));
-        table.put(2, "apple");
-        table.put(3, "tree");
-        table.put(9, "fruit");
-        table.put(1, "a blue");
-        table.put(5, "a blue");
-        table.put(6, "a blue");
-        table.put(7, "a blue");
-        System.out.println(table.get(1));
-        System.out.println(table.get(2));
-        System.out.println(table.get(3));
-        System.out.println(table.get(9));
-        table.remove(9);
-        table.remove(9);
-        System.out.println(table.get(9));
+        int[] array = new int[]{1, 2, 2, 3, 3, 3, 4};
+        System.out.println(HashTableExercises.mostFrequent(array));
+        int[] array2 = new int[]{1, 2, 2, 2, 3, 3, 3, 4};
+        System.out.println(HashTableExercises.mostFrequent(array2));
 
 
     }
