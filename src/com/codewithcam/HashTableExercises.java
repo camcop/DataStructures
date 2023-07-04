@@ -1,8 +1,6 @@
 package com.codewithcam;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class HashTableExercises {
 
@@ -43,5 +41,19 @@ public class HashTableExercises {
         return count;
     }
 
+
+    public static String twoSum(int[] array, int target) {
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < array.length; i++) {
+            int complement = target - array[i];
+            if (map.get(complement) != null)
+                return Arrays.toString(new int[]{i, map.get(complement)});
+            map.put(array[i], i);
+        }
+
+        return null;
+    }
 
 }

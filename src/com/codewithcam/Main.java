@@ -179,9 +179,13 @@ public class Main {
 //        int[] array2 = new int[]{1, 2, 2, 2, 3, 3, 3, 4};
 //        System.out.println(HashTableExercises.mostFrequent(array2));
 
-        int[] array = new int[]{1, 7, 5, 9, 2, 12, 3};
+//        int[] array = new int[] {1, 7, 5, 9, 2, 12, 3};
 //        int[] array = new int[] {1, 7, 5, 9, 2, 12, 3, 6};
-        System.out.println(HashTableExercises.countPairsWithDiff(array, 4));
+//        System.out.println(HashTableExercises.countPairsWithDiff(array, 4));
+
+        int[] array = new int[]{2, 7, 11, 15, 4};
+        int target = 11;
+        System.out.println(HashTableExercises.twoSum(array, target));
 
     }
 
