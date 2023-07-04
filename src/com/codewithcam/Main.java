@@ -183,9 +183,24 @@ public class Main {
 //        int[] array = new int[] {1, 7, 5, 9, 2, 12, 3, 6};
 //        System.out.println(HashTableExercises.countPairsWithDiff(array, 4));
 
-        int[] array = new int[]{2, 7, 11, 15, 4};
-        int target = 11;
-        System.out.println(HashTableExercises.twoSum(array, target));
+//        int[] array = new int[]{2, 7, 11, 15, 4};
+//        int target = 11;
+//        System.out.println(HashTableExercises.twoSum(array, target));
+
+        HashMap map = new HashMap();
+        map.put(1, "hello");
+        map.put(2, "hello2");
+        map.put(3, "hello3");
+        System.out.println(map.get(1));
+        System.out.println(map.get(2));
+        System.out.println(map.get(3));
+        System.out.println(map.remove(3));
+        map.put(9, "hello9");
+        map.put(10, "hello10");
+        System.out.println(map.get(9));
+        System.out.println(map.get(10));
+        System.out.println(map.size());
+
 
     }
 

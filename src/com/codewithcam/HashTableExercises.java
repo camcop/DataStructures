@@ -1,6 +1,9 @@
 package com.codewithcam;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class HashTableExercises {
 
@@ -14,7 +17,7 @@ public class HashTableExercises {
 
         int max_n = 0;
         int max_count = 0;
-        HashMap<Integer, Integer> table = new HashMap<>();
+        java.util.HashMap<Integer, Integer> table = new java.util.HashMap<>();
         for (int n : array) {
             int count = table.getOrDefault(n, 0) + 1;
             table.put(n, count);
@@ -44,7 +47,7 @@ public class HashTableExercises {
 
     public static String twoSum(int[] array, int target) {
 
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new java.util.HashMap<>();
 
         for (int i = 0; i < array.length; i++) {
             int complement = target - array[i];
