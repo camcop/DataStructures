@@ -1,6 +1,8 @@
 package com.codewithcam;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class HashTableExercises {
 
@@ -10,6 +12,7 @@ public class HashTableExercises {
 //        Keep track of max frequency and relevant key
 //        If the frequency exceeds the max frequency then replace the max
 //        Return the max key
+//        Algorithm is O(n)
 
         int max_n = 0;
         int max_count = 0;
@@ -25,5 +28,20 @@ public class HashTableExercises {
 
         return max_n;
     }
+
+    public static int countPairsWithDiff(int[] array, int k) {
+        int count = 0;
+        Set<Integer> visited = new HashSet<>();
+        for (int n : array) {
+            if (visited.contains(n + k))
+                count++;
+            if (visited.contains(n - k))
+                count++;
+            visited.add(n);
+        }
+
+        return count;
+    }
+
 
 }

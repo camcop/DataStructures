@@ -174,11 +174,14 @@ public class Main {
 //        table.remove(9);
 //        System.out.println(table.get(9));
 
-        int[] array = new int[]{1, 2, 2, 3, 3, 3, 4};
-        System.out.println(HashTableExercises.mostFrequent(array));
-        int[] array2 = new int[]{1, 2, 2, 2, 3, 3, 3, 4};
-        System.out.println(HashTableExercises.mostFrequent(array2));
+//        int[] array = new int[]{1, 2, 2, 3, 3, 3, 4};
+//        System.out.println(HashTableExercises.mostFrequent(array));
+//        int[] array2 = new int[]{1, 2, 2, 2, 3, 3, 3, 4};
+//        System.out.println(HashTableExercises.mostFrequent(array2));
 
+        int[] array = new int[]{1, 7, 5, 9, 2, 12, 3};
+//        int[] array = new int[] {1, 7, 5, 9, 2, 12, 3, 6};
+        System.out.println(HashTableExercises.countPairsWithDiff(array, 4));
 
     }
 
