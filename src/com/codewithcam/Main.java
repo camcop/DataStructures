@@ -191,10 +191,28 @@ public class Main {
         map.put(1, "hello");
         map.put(2, "hello2");
         map.put(3, "hello3");
+        map.put(3, "hello3.1");
+        map.put(13, "hello13");
+        map.put(23, "hello23");
+        map.put(33, "hello33");
+        map.put(43, "hello43");
+        map.put(53, "hello53");
+//        map.put(63, "hello63");
+//        map.put(73, "hello73");
+        System.out.println(map.size());
+
         System.out.println(map.get(1));
         System.out.println(map.get(2));
         System.out.println(map.get(3));
+        System.out.println(map.get(33));
+//        System.out.println(map.get(43));
+//        System.out.println(map.get(53));
         System.out.println(map.remove(3));
+        System.out.println(map.remove(33));
+        System.out.println(map.remove(43));
+        System.out.println(map.remove(53));
+        System.out.println(map.size());
+
         map.put(9, "hello9");
         map.put(10, "hello10");
         System.out.println(map.get(9));

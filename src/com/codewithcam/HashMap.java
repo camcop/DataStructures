@@ -32,44 +32,57 @@ public class HashMap {
         if (isFull()) throw new NoSuchElementException();
 
         int slot = hash(key);
-        Entry bucket = entries[slot];
-        while (bucket != null) {
-            bucket = entries[(++slot % MAX_ENTRIES)];
+        Entry entry = entries[slot];
+        while (entry != null) {
+            slot = (++slot % MAX_ENTRIES);
+            entry = entries[slot];
         }
         return slot;
     }
 
     private int getSlot(int key) {
         int slot = hash(key);
-        Entry bucket = entries[slot];
+        Entry entry = entries[slot];
 
-        while (bucket != null) {
-            if (bucket.key == key) {
+//      This loop may terminate one iteration too early if the slot for the key is located at hash(key) - 1
+        while (slot != hash(key) - 1) {
+            if (entry != null && entry.key == key)
                 return slot;
-            }
-            bucket = entries[(++slot % MAX_ENTRIES)];
-            if (slot == hash(key)) throw new NoSuchElementException();
+            slot = (++slot % MAX_ENTRIES);
+            entry = entries[slot];
         }
 
-        throw new NoSuchElementException();
+        return -1;
     }
 
     public void put(int key, String value) {
         if (isFull()) throw new IllegalStateException();
 
-        entries[getNextEmptySlot(key)] = new Entry(key, value);
-        size++;
+        int slot = getSlot(key);
+        if (slot == -1) {
+            entries[getNextEmptySlot(key)] = new Entry(key, value);
+            size++;
+        } else {
+            entries[slot].value = value;
+        }
+
     }
 
     public String get(int key) {
-        return entries[getSlot(key)].value;
+        int slot = getSlot(key);
+        if (slot == -1) throw new NoSuchElementException();
+
+        return entries[slot].value;
     }
 
     public String remove(int key) {
         if (size() == 0) throw new IllegalStateException();
 
-        String value = entries[getSlot(key)].value;
-        entries[getSlot(key)] = null;
+        int slot = getSlot(key);
+        if (slot == -1) throw new NoSuchElementException();
+
+        String value = entries[slot].value;
+        entries[slot] = null;
         size--;
 
         return value;
