@@ -125,14 +125,50 @@ public class Tree {
         return height(root);
     }
 
-    private int height(Node node) {
-        if (node == null)
+    private int height(Node root) {
+        if (root == null)
             return -1;
 
-        if (node.leftChild == null && node.rightChild == null)
+        if (isLeaf(root))
             return 0;
 
-        return 1 + Math.max(height(node.leftChild), height(node.rightChild));
+        return 1 + Math.max(height(root.leftChild), height(root.rightChild));
+    }
+
+    private boolean isLeaf(Node node) {
+        return node.leftChild == null && node.rightChild == null;
+    }
+
+    public int minBinary() {
+//        Returns minimum value in binary search tree
+//        O(log n) as we are discarding roughly half the nodes by only searching left children
+        if (root == null)
+            throw new IllegalStateException();
+
+        Node current = root;
+        Node last = current;
+        while (current.leftChild != null) {
+            last = current;
+            current = current.leftChild;
+        }
+
+        return last.value;
+    }
+
+    public int min() {
+        return min(root);
+    }
+
+    private int min(Node root) {
+//        Returns min value for binary tree (not binary search tree)
+//        O(n) as we are required to search all nodes in the tree
+        if (isLeaf(root))
+            return root.value;
+
+        int left = min(root.leftChild);
+        int right = min(root.rightChild);
+
+        return Math.min(Math.min(left, right), root.value);
 
     }
 
