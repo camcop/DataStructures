@@ -29,52 +29,61 @@ public class Tree {
             return;
         }
 
-        Node current = root;
+        if (find(value)) return;
+
         Node node = new Node(value);
 
-        Node parent = findParent(value);
-
-//        TODO: case in which node already exists
-        if (value < parent.value) {
-            parent.leftChild = node;
-        } else {
-            parent.rightChild = node;
-        }
-
-    }
-
-    private Node findParent(int value) {
         Node current = root;
-
         while (true) {
             if (value < current.value) {
-                if (current.leftChild == null)
-                    return current;
+                if (current.leftChild == null) {
+                    current.leftChild = node;
+                    break;
+                }
                 current = current.leftChild;
-            }
-            if (value > current.value) {
-                if (current.rightChild == null)
-                    return current;
+            } else {
+                if (current.rightChild == null) {
+                    current.rightChild = node;
+                    break;
+                }
                 current = current.rightChild;
             }
+
         }
+
     }
 
-    public boolean find(int value) {
-//        TODO: correct method
-        Node current = root;
-
-//        while (current.leftChild != null || current.rightChild != null) {
+//    private Node findParent(int value) {
+//        Node current = root;
+//
 //        while (true) {
 //            if (value < current.value) {
+//                if (current.leftChild == null || current.leftChild.value == value)
+//                    return current;
 //                current = current.leftChild;
 //            }
 //            if (value > current.value) {
+//                if (current.rightChild == null || current.rightChild.value == value)
+//                    return current;
 //                current = current.rightChild;
 //            }
 //        }
+//    }
 
-        return current.value == value;
+    public boolean find(int value) {
+        Node current = root;
+
+        while (current != null) {
+            if (value < current.value) {
+                current = current.leftChild;
+            } else if (value > current.value) {
+                current = current.rightChild;
+            } else {
+                return true;
+            }
+        }
+        return false;
+
     }
 
 

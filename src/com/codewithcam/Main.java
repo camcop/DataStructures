@@ -227,6 +227,11 @@ public class Main {
         tree.insert(8);
         tree.insert(10);
         System.out.println("done");
+        System.out.println(tree.find(7));
+        System.out.println(tree.find(9));
+        System.out.println(tree.find(1));
+        System.out.println(tree.find(3));
+
     }
 
 
