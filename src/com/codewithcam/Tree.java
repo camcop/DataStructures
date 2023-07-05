@@ -20,7 +20,7 @@ public class Tree {
 
     }
 
-    private Node root;
+    public Node root;
 
     public void insert(int value) {
 
@@ -29,7 +29,7 @@ public class Tree {
             return;
         }
 
-        if (find(value)) return;
+        if (contains(value)) return;
 
         Node node = new Node(value);
 
@@ -53,24 +53,7 @@ public class Tree {
 
     }
 
-//    private Node findParent(int value) {
-//        Node current = root;
-//
-//        while (true) {
-//            if (value < current.value) {
-//                if (current.leftChild == null || current.leftChild.value == value)
-//                    return current;
-//                current = current.leftChild;
-//            }
-//            if (value > current.value) {
-//                if (current.rightChild == null || current.rightChild.value == value)
-//                    return current;
-//                current = current.rightChild;
-//            }
-//        }
-//    }
-
-    public boolean find(int value) {
+    public boolean contains(int value) {
         Node current = root;
 
         while (current != null) {
@@ -86,5 +69,57 @@ public class Tree {
 
     }
 
+    public Node find(int value) {
+        Node current = root;
+
+        while (current != null) {
+            if (value < current.value) {
+                current = current.leftChild;
+            } else if (value > current.value) {
+                current = current.rightChild;
+            } else {
+                return current;
+            }
+        }
+        return null;
+
+    }
+
+    public void traversePreOrder(Node root) {
+        if (root == null) return;
+
+        System.out.println(root.value);
+        traversePreOrder(root.leftChild);
+        traversePreOrder(root.rightChild);
+    }
 
 }
+
+
+//    private Node findParent(int value) {
+//        Node current = root;
+//
+//        while (true) {
+//            if (value < current.value) {
+//                if (current.leftChild == null || current.leftChild.value == value)
+//                    return current;
+//                current = current.leftChild;
+//            }
+//            if (value > current.value) {
+//                if (current.rightChild == null || current.rightChild.value == value)
+//                    return current;
+//                current = current.rightChild;
+//            }
+//        }
+
+//    private Node goLeft(Node node, Set<Node> visited, java.util.Stack<Node> rightChildren) {
+//        visited.add(node);
+//        System.out.println(node.value);
+//        if (node.rightChild != null && !rightChildren.contains(node.rightChild))
+//            visited.add(node.rightChild);
+//
+//        if (node.leftChild == null || visited.contains(node.leftChild))
+//            return node;
+//
+//        return goLeft(node.leftChild, visited, rightChildren);
+//    }
