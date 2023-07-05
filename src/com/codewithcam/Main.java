@@ -241,7 +241,8 @@ public class Main {
 
 //        tree.traversePreOrder();
 //        tree.traverseInOrder();
-        tree.traversePostOrder();
+//        tree.traversePostOrder();
+        System.out.println(tree.height());
     }
 
 

@@ -20,7 +20,7 @@ public class Tree {
 
     }
 
-    public Node root;
+    private Node root;
 
     public void insert(int value) {
 
@@ -89,7 +89,7 @@ public class Tree {
         traversePreOrder(root);
     }
 
-    public void traversePreOrder(Node root) {
+    private void traversePreOrder(Node root) {
         if (root == null) return;
 
         System.out.println(root.value);
@@ -101,7 +101,7 @@ public class Tree {
         traverseInOrder(root);
     }
 
-    public void traverseInOrder(Node root) {
+    private void traverseInOrder(Node root) {
         if (root == null) return;
 
         traverseInOrder(root.leftChild);
@@ -113,12 +113,27 @@ public class Tree {
         traversePostOrder(root);
     }
 
-    public void traversePostOrder(Node root) {
+    private void traversePostOrder(Node root) {
         if (root == null) return;
 
         traversePostOrder(root.leftChild);
         traversePostOrder(root.rightChild);
         System.out.println(root.value);
+    }
+
+    public int height() {
+        return height(root);
+    }
+
+    private int height(Node node) {
+        if (node == null)
+            return -1;
+
+        if (node.leftChild == null && node.rightChild == null)
+            return 0;
+
+        return 1 + Math.max(height(node.leftChild), height(node.rightChild));
+
     }
 
 }
