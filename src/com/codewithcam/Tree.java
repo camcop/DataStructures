@@ -1,5 +1,7 @@
 package com.codewithcam;
 
+import java.util.ArrayList;
+
 public class Tree {
 
     public class Node {
@@ -212,20 +214,22 @@ public class Tree {
         return false;
     }
 
-    public void printNodesAtKDistance(int k) {
-        printNodesAtKDistance(root, k);
+    public ArrayList<Integer> getNodesAtDistance(int k) {
+        ArrayList<Integer> list = new ArrayList<>();
+        getNodesAtDistance(root, k, list);
+        return list;
     }
 
-    private void printNodesAtKDistance(Node node, int k) {
+    private void getNodesAtDistance(Node node, int k, ArrayList<Integer> list) {
 
         if (node == null)
             return;
 
         if (k == 0)
-            System.out.println(node.value);
+            list.add(node.value);
         else {
-            printNodesAtKDistance(node.leftChild, k - 1);
-            printNodesAtKDistance(node.rightChild, k - 1);
+            getNodesAtDistance(node.leftChild, k - 1, list);
+            getNodesAtDistance(node.rightChild, k - 1, list);
         }
     }
 

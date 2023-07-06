@@ -257,7 +257,7 @@ public class Main {
 
 //        System.out.println(tree.equals(tree2));
 //        System.out.println(tree.validate());
-        tree.printNodesAtKDistance(2);
+        System.out.println(tree.getNodesAtDistance(2));
     }
 
 
