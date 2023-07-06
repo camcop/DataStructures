@@ -2,11 +2,11 @@ package com.codewithcam;
 
 public class Tree {
 
-    private class Node {
+    public class Node {
 
-        private int value;
-        private Node leftChild;
-        private Node rightChild;
+        public int value;
+        public Node leftChild;
+        public Node rightChild;
 
         public Node(int value) {
             this.value = value;
@@ -20,7 +20,7 @@ public class Tree {
 
     }
 
-    private Node root;
+    public Node root;
 
     public void insert(int value) {
 
@@ -195,6 +195,23 @@ public class Tree {
 
         return equals(first.leftChild, second.leftChild) && equals(first.rightChild, second.rightChild);
     }
+
+
+    public boolean validate() {
+        return validate(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean validate(Node node, int min, int max) {
+
+        if (node == null)
+            return true;
+
+        if (node.value > min && node.value < max)
+            return validate(node.leftChild, min, node.value) && validate(node.rightChild, node.value, max);
+
+        return false;
+    }
+
 
 }
 
