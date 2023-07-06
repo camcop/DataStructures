@@ -31,7 +31,7 @@ public class Tree {
             return;
         }
 
-        if (contains(value)) return;
+        if (containsIteration(value)) return;
 
         Node node = new Node(value);
 
@@ -55,7 +55,7 @@ public class Tree {
 
     }
 
-    public boolean contains(int value) {
+    public boolean containsIteration(int value) {
         Node current = root;
 
         while (current != null) {
@@ -71,7 +71,7 @@ public class Tree {
 
     }
 
-    public Node find(int value) {
+    public Node findNodeIteration(int value) {
         Node current = root;
 
         while (current != null) {
@@ -287,6 +287,22 @@ public class Tree {
             return node.value;
 
         return max(root.rightChild);
+
+    }
+
+    public boolean contains(int value) {
+        return contains(root, value);
+    }
+
+    private boolean contains(Node node, int value) {
+
+        if (node == null)
+            return false;
+
+        if (node.value == value)
+            return true;
+
+        return contains(node.leftChild, value) || contains(node.rightChild, value);
 
     }
 
