@@ -259,4 +259,22 @@ public class Tree {
         return count;
     }
 
+    public int countLeaves() {
+//        Would make sense to use post order traversal as we are interested in leaf nodes first
+        return countLeaves(root, 0);
+    }
+
+    private int countLeaves(Node node, int count) {
+
+        if (node == null)
+            return count;
+
+        count = countLeaves(node.leftChild, count) + countLeaves(node.rightChild, count);
+
+        if (node.leftChild == null && node.rightChild == null)
+            return ++count;
+
+        return count;
+    }
+
 }
