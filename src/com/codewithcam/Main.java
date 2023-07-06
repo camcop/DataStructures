@@ -264,7 +264,8 @@ public class Main {
 //        System.out.println(tree.max());
 //        System.out.println(tree.contains(30));
 //        System.out.println(tree.contains(99));
-        System.out.println(tree.areSiblings(10, 8));
+//        System.out.println(tree.areSiblings(10, 8));
+        System.out.println(tree.getAncestors(30));
     }
 
 

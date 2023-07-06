@@ -1,6 +1,7 @@
 package com.codewithcam;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Tree {
 
@@ -324,4 +325,28 @@ public class Tree {
     }
 
 
+    public List<Integer> getAncestors(int value) {
+        List<Integer> ancestors = new ArrayList<>();
+        if (!contains(value))
+            return ancestors;
+
+        return getAncestors(root, value, ancestors);
+    }
+
+    private List<Integer> getAncestors(Node node, int value, List<Integer> list) {
+
+        if (node == null)
+            return list;
+
+        if (node.value == value)
+            return list;
+
+        list.add(node.value);
+
+        if (value < node.value)
+            return getAncestors(node.leftChild, value, list);
+        else
+            return getAncestors(node.rightChild, value, list);
+
+    }
 }
