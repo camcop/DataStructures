@@ -172,6 +172,30 @@ public class Tree {
 
     }
 
+    public boolean equals(Tree other) {
+//        Compare two nodes to see if equal
+//        If so, check subtrees to see if equal
+//        This is pre-order traversal
+//        Use recursion
+
+        return equals(root, other.root);
+
+    }
+
+    private boolean equals(Node first, Node second) {
+
+        if (first == null)
+            return second == null;
+
+        if (second == null)
+            return false;
+
+        if (first.value != second.value)
+            return false;
+
+        return equals(first.leftChild, second.leftChild) && equals(first.rightChild, second.rightChild);
+    }
+
 }
 
 
