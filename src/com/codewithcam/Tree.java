@@ -240,34 +240,23 @@ public class Tree {
         }
     }
 
+    public int size() {
+//        Need to check every node
+//        Shouldn't matter which traversal algorithm is used
+
+        return size(root, 0);
+    }
+
+    private int size(Node node, int count) {
+
+        if (node == null)
+            return count;
+
+        count++;
+
+        count = size(node.leftChild, count);
+        count = size(node.rightChild, count);
+        return count;
+    }
 
 }
-
-
-//    private Node findParent(int value) {
-//        Node current = root;
-//
-//        while (true) {
-//            if (value < current.value) {
-//                if (current.leftChild == null || current.leftChild.value == value)
-//                    return current;
-//                current = current.leftChild;
-//            }
-//            if (value > current.value) {
-//                if (current.rightChild == null || current.rightChild.value == value)
-//                    return current;
-//                current = current.rightChild;
-//            }
-//        }
-
-//    private Node goLeft(Node node, Set<Node> visited, java.util.Stack<Node> rightChildren) {
-//        visited.add(node);
-//        System.out.println(node.value);
-//        if (node.rightChild != null && !rightChildren.contains(node.rightChild))
-//            visited.add(node.rightChild);
-//
-//        if (node.leftChild == null || visited.contains(node.leftChild))
-//            return node;
-//
-//        return goLeft(node.leftChild, visited, rightChildren);
-//    }
