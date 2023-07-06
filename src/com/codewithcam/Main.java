@@ -257,7 +257,8 @@ public class Main {
 
 //        System.out.println(tree.equals(tree2));
 //        System.out.println(tree.validate());
-        System.out.println(tree.getNodesAtDistance(2));
+//        System.out.println(tree.getNodesAtDistance(2));
+        tree.traverseLevelOrder();
     }
 
 
