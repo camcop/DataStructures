@@ -306,5 +306,22 @@ public class Tree {
 
     }
 
+    public boolean areSiblings(int value1, int value2) {
+        return areSiblings(root, value1, value2);
+    }
+
+    private boolean areSiblings(Node node, int value1, int value2) {
+
+        if (node.leftChild == null || node.rightChild == null)
+            return false;
+
+        if (node.leftChild.value == value1 || node.rightChild.value == value1) {
+            if (node.leftChild.value == value2 || node.rightChild.value == value2)
+                return true;
+        }
+
+        return areSiblings(node.leftChild, value1, value2) || areSiblings(node.rightChild, value1, value2);
+    }
+
 
 }
