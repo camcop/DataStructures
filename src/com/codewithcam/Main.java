@@ -260,7 +260,8 @@ public class Main {
 //        System.out.println(tree.getNodesAtDistance(2));
 //        tree.traverseLevelOrder();
 //        System.out.println(tree.size());
-        System.out.println(tree.countLeaves());
+//        System.out.println(tree.countLeaves());
+        System.out.println(tree.max());
     }
 
 

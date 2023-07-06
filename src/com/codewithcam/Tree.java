@@ -277,4 +277,18 @@ public class Tree {
         return count;
     }
 
+    public int max() {
+        return max(root);
+    }
+
+    private int max(Node node) {
+
+        if (node.rightChild == null)
+            return node.value;
+
+        return max(root.rightChild);
+
+    }
+
+
 }
