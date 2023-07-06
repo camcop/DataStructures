@@ -212,6 +212,23 @@ public class Tree {
         return false;
     }
 
+    public void printNodesAtKDistance(int k) {
+        printNodesAtKDistance(root, k);
+    }
+
+    private void printNodesAtKDistance(Node node, int k) {
+
+        if (node == null)
+            return;
+
+        if (k == 0)
+            System.out.println(node.value);
+        else {
+            printNodesAtKDistance(node.leftChild, k - 1);
+            printNodesAtKDistance(node.rightChild, k - 1);
+        }
+    }
+
 
 }
 
