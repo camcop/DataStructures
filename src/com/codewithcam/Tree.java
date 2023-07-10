@@ -279,6 +279,7 @@ public class Tree {
     }
 
     public int max() {
+        if (root == null) throw new IllegalStateException();
         return max(root);
     }
 
@@ -313,7 +314,7 @@ public class Tree {
 
     private boolean areSiblings(Node node, int value1, int value2) {
 
-        if (node.leftChild == null || node.rightChild == null)
+        if (node == null || node.leftChild == null || node.rightChild == null)
             return false;
 
         if (node.leftChild.value == value1 || node.rightChild.value == value1) {
@@ -327,6 +328,7 @@ public class Tree {
 
     public List<Integer> getAncestors(int value) {
         List<Integer> ancestors = new ArrayList<>();
+
         if (!contains(value))
             return ancestors;
 
