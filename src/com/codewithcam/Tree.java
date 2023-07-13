@@ -371,4 +371,9 @@ public class Tree {
 
     }
 
+    public boolean isPerfect() {
+//        Tree is perfect if every level except the last is full of nodes
+        return (size() == Math.pow(2, height() + 1) - 1);
+    }
+
 }

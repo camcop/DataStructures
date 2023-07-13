@@ -267,6 +267,7 @@ public class Main {
 //        System.out.println(tree.areSiblings(3, 8));
 //        System.out.println(tree.getAncestors(30));
         System.out.println(tree.isBalanced());
+        System.out.println(tree.isPerfect());
 
 //        AVLTree tree = new AVLTree();
 //        tree.insert(5);
