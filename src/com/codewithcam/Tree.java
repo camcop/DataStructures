@@ -351,4 +351,24 @@ public class Tree {
             return getAncestors(node.rightChild, value, list);
 
     }
+
+    public boolean isBalanced() {
+        return isBalanced(root);
+    }
+
+    private boolean isBalanced(Node node) {
+//        Traverse tree from leaves (post order?)
+//        At each node, if difference in height of left and right subtrees is greater than 1 it is not balanced
+//        If balanced, continue recursion
+
+        if (node == null)
+            return true;
+
+        isBalanced(node.leftChild);
+        isBalanced(node.rightChild);
+
+        return !(Math.abs(height(node.leftChild) - height(node.rightChild)) > 1);
+
+    }
+
 }
