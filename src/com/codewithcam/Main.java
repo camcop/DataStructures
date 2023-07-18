@@ -238,15 +238,15 @@ public class Main {
 //        System.out.println("done");
 //        System.out.println(tree.find(7));
 
-        Tree tree = new Tree();
-        tree.insert(20);
-        tree.insert(10);
-        tree.insert(30);
-        tree.insert(6);
-        tree.insert(14);
-        tree.insert(24);
-        tree.insert(3);
-        tree.insert(8);
+//        Tree tree = new Tree();
+//        tree.insert(20);
+//        tree.insert(10);
+//        tree.insert(30);
+//        tree.insert(6);
+//        tree.insert(14);
+//        tree.insert(24);
+//        tree.insert(3);
+//        tree.insert(8);
 //        tree.insert(26);
 
 //        tree.traversePreOrder();
@@ -266,8 +266,8 @@ public class Main {
 //        System.out.println(tree.contains(99));
 //        System.out.println(tree.areSiblings(3, 8));
 //        System.out.println(tree.getAncestors(30));
-        System.out.println(tree.isBalanced());
-        System.out.println(tree.isPerfect());
+//        System.out.println(tree.isBalanced());
+//        System.out.println(tree.isPerfect());
 
 //        AVLTree tree = new AVLTree();
 //        tree.insert(5);
@@ -278,6 +278,17 @@ public class Main {
 //        tree.insert(30);
 //        tree.insert(20);
 //        System.out.println("done");
+
+        Heap heap = new Heap();
+        heap.insert(5);
+        heap.insert(3);
+        heap.insert(9);
+        heap.insert(40);
+        heap.insert(12);
+        heap.insert(1);
+        heap.remove();
+        heap.remove();
+
 
     }
 

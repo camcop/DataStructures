@@ -2,7 +2,7 @@ package com.codewithcam;
 
 public class Heap {
 
-    private int[] items = new int[8];
+    private int[] items = new int[16];
     private int size = 0;
 
     public void insert(int value) {
@@ -13,12 +13,12 @@ public class Heap {
             return;
         }
 
-        items[size++ - 1] = value;
-        bubbleUp(size);
+        items[size++] = value;
+        bubbleUp(size - 1);
     }
 
     private void bubbleUp() {
-        bubbleUp(size);
+        bubbleUp(size - 1);
     }
 
     private void bubbleUp(int index) {
