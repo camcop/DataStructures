@@ -7,7 +7,9 @@ public class Heap {
 
     public void insert(int value) {
 
-        if (size == 0) {
+        if (isFull()) throw new IllegalStateException();
+
+        if (isEmpty()) {
             items[0] = value;
             size++;
             return;
@@ -15,6 +17,14 @@ public class Heap {
 
         items[size++] = value;
         bubbleUp(size - 1);
+    }
+
+    public boolean isFull() {
+        return size == items.length;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     private void bubbleUp() {
@@ -27,15 +37,13 @@ public class Heap {
         if (index == 0 || items[index] < items[parentIndex])
             return;
 
-        int parent = items[parentIndex];
-        int item = items[index];
-        items[parentIndex] = item;
-        items[index] = parent;
-
+        swap(index, parentIndex);
         bubbleUp(parentIndex);
     }
 
     public int remove() {
+
+        if (isEmpty()) throw new IllegalStateException();
 
         int root = items[0];
         int newRoot = items[size - 1];
@@ -61,14 +69,18 @@ public class Heap {
             return;
 
         if (items[leftChildIndex] >= items[rightChildIndex]) {
-            items[index] = items[leftChildIndex];
-            items[leftChildIndex] = parent;
+            swap(index, leftChildIndex);
             bubbleDown(leftChildIndex);
         } else {
-            items[index] = items[rightChildIndex];
-            items[rightChildIndex] = parent;
+            swap(index, rightChildIndex);
             bubbleDown(rightChildIndex);
         }
+    }
+
+    private void swap(int first, int second) {
+        int temp = items[first];
+        items[first] = items[second];
+        items[second] = temp;
     }
 
 
