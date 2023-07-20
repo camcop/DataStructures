@@ -1,5 +1,6 @@
 package com.codewithcam;
 
+import java.util.Arrays;
 import java.util.Queue;
 
 public class Main {
@@ -279,16 +280,19 @@ public class Main {
 //        tree.insert(20);
 //        System.out.println("done");
 
-        Heap heap = new Heap();
-        heap.insert(5);
-        heap.insert(3);
-        heap.insert(9);
-        heap.insert(40);
-        heap.insert(12);
-        heap.insert(1);
-        heap.remove();
-        heap.remove();
+//        Heap heap = new Heap();
+//        heap.insert(5);
+//        heap.insert(3);
+//        heap.insert(9);
+//        heap.insert(40);
+//        heap.insert(12);
+//        heap.insert(1);
+//        heap.remove();
+//        heap.remove();
 
+        int[] numbers = {5, 3, 8, 4, 1, 2};
+        MaxHeap.heapify(numbers);
+        System.out.println(Arrays.toString(numbers));
 
     }
 
