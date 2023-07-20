@@ -3,7 +3,8 @@ package com.codewithcam;
 public class MaxHeap {
 
     public static void heapify(int[] array) {
-        for (int i = 0; i < array.length - 1; i++) {
+        int lastParentIndex = array.length / 2 - 1;
+        for (int i = lastParentIndex; i >= 0; i--) {
             heapify(array, i);
         }
     }
@@ -21,17 +22,19 @@ public class MaxHeap {
             return;
 
         if (parent < array[leftChildIndex]) {
-            int temp = array[leftChildIndex];
-            array[leftChildIndex] = parent;
-            array[index] = temp;
+            swap(array, index, leftChildIndex);
             heapify(array, leftChildIndex);
         } else {
-            int temp = array[rightChildIndex];
-            array[rightChildIndex] = parent;
-            array[index] = temp;
+            swap(array, index, rightChildIndex);
             heapify(array, rightChildIndex);
         }
 
+    }
+
+    private static void swap(int[] array, int first, int second) {
+        int temp = array[first];
+        array[first] = array[second];
+        array[second] = temp;
     }
 
 }
