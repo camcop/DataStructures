@@ -293,6 +293,7 @@ public class Main {
         int[] numbers = {5, 3, 8, 4, 1, 2};
         MaxHeap.heapify(numbers);
         System.out.println(Arrays.toString(numbers));
+        System.out.println(MaxHeap.getKthLargest(numbers, 6));
 
     }
 
