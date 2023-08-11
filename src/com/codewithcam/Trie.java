@@ -1,5 +1,7 @@
 package com.codewithcam;
 
+import java.util.HashMap;
+
 public class Trie {
 
     public static final int ALPHABET_SIZE = 26;
@@ -7,7 +9,7 @@ public class Trie {
     private static class Node {
 
         private char value;
-        private Node[] children = new Node[ALPHABET_SIZE];
+        private HashMap<Character, Node> children = new HashMap<>();
         private boolean isEndOfWord;
 
         public Node() {
@@ -25,8 +27,8 @@ public class Trie {
             isEndOfWord = endOfWord;
         }
 
-        public Node[] getChildren() {
-            return children;
+        public HashMap<Character, Node> getChildren() {
+            return this.children;
         }
 
         @Override
@@ -45,11 +47,8 @@ public class Trie {
         for (char c : wordLower.toCharArray()) {
             if (c < 97 || c > 122) throw new IllegalArgumentException();
 
-            int charIndex = c - 'a';
-            if (current.getChildren()[charIndex] == null)
-                current.getChildren()[charIndex] = new Node(c);
-
-            current = current.getChildren()[charIndex];
+            current.getChildren().putIfAbsent(c, new Node(c));
+            current = current.getChildren().get(c);
         }
 
         current.setEndOfWord(true);
