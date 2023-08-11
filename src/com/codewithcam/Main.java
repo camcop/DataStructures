@@ -1,6 +1,5 @@
 package com.codewithcam;
 
-import java.util.Arrays;
 import java.util.Queue;
 
 public class Main {
@@ -290,10 +289,16 @@ public class Main {
 //        heap.remove();
 //        heap.remove();
 
-        int[] numbers = {5, 3, 8, 4, 1, 2};
-        MaxHeap.heapify(numbers);
-        System.out.println(Arrays.toString(numbers));
-        System.out.println(MaxHeap.getKthLargest(numbers, 6));
+//        int[] numbers = {5, 3, 8, 4, 1, 2};
+//        MaxHeap.heapify(numbers);
+//        System.out.println(Arrays.toString(numbers));
+//        System.out.println(MaxHeap.getKthLargest(numbers, 6));
+
+        Trie trie = new Trie();
+        trie.insert("fridge");
+        trie.insert("frick");
+        trie.insert("frog");
+
 
     }
 
