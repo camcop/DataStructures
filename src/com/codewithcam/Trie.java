@@ -4,18 +4,16 @@ import java.util.HashMap;
 
 public class Trie {
 
-    public static final int ALPHABET_SIZE = 26;
-
-    private static class Node {
+    private static class TrieNode {
 
         private char value;
-        private HashMap<Character, Node> children = new HashMap<>();
+        private HashMap<Character, TrieNode> children = new HashMap<>();
         private boolean isEndOfWord;
 
-        public Node() {
+        public TrieNode() {
         }
 
-        public Node(char value) {
+        public TrieNode(char value) {
             this.value = value;
         }
 
@@ -27,8 +25,20 @@ public class Trie {
             isEndOfWord = endOfWord;
         }
 
-        public HashMap<Character, Node> getChildren() {
+        public HashMap<Character, TrieNode> getChildren() {
             return this.children;
+        }
+
+        public boolean hasChild(char ch) {
+            return this.getChildren().containsKey(ch);
+        }
+
+        public void addChild(char ch) {
+            this.getChildren().put(ch, new TrieNode(ch));
+        }
+
+        public com.codewithcam.Trie.TrieNode getChild(char ch) {
+            return this.getChildren().get(ch);
         }
 
         @Override
@@ -37,18 +47,20 @@ public class Trie {
         }
     }
 
-    public Node root = new Node(' ');
+    public TrieNode root = new TrieNode(' ');
 
     public void insert(String word) {
 
         String wordLower = word.toLowerCase();
 
-        Node current = root;
+        TrieNode current = root;
         for (char c : wordLower.toCharArray()) {
             if (c < 97 || c > 122) throw new IllegalArgumentException();
 
-            current.getChildren().putIfAbsent(c, new Node(c));
-            current = current.getChildren().get(c);
+            if (!current.hasChild(c))
+                current.addChild(c);
+
+            current = current.getChild(c);
         }
 
         current.setEndOfWord(true);
