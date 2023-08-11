@@ -25,20 +25,35 @@ public class Trie {
             isEndOfWord = endOfWord;
         }
 
-        public HashMap<Character, TrieNode> getChildren() {
-            return this.children;
+        //        public HashMap<Character, TrieNode> getChildren() {
+//            return this.children;
+//        }
+        public TrieNode[] getChildren() {
+            return this.children.values().toArray(new TrieNode[0]);
+        }
+
+        public boolean hasChildren() {
+            return !children.isEmpty();
         }
 
         public boolean hasChild(char ch) {
-            return this.getChildren().containsKey(ch);
+            return this.children.containsKey(ch);
         }
 
         public void addChild(char ch) {
-            this.getChildren().put(ch, new TrieNode(ch));
+            this.children.put(ch, new TrieNode(ch));
         }
 
-        public com.codewithcam.Trie.TrieNode getChild(char ch) {
-            return this.getChildren().get(ch);
+        public TrieNode getChild(char ch) {
+            return this.children.get(ch);
+        }
+
+        public void setValue(char value) {
+            this.value = value;
+        }
+
+        public void removeChild(char ch) {
+            this.children.remove(ch);
         }
 
         @Override
@@ -81,5 +96,44 @@ public class Trie {
         return current.isEndOfWord();
     }
 
+    public void traverse() {
+        traverse(root);
+    }
 
+    private void traverse(TrieNode root) {
+//        Pre-order: visit the root first
+        System.out.println(root);
+
+        for (TrieNode child : root.getChildren())
+            traverse(child);
+    }
+
+    public void remove(String word) {
+        if (word == null || word.length() == 0) return;
+
+        if (!this.contains(word)) return;
+
+        remove(root, word, 0);
+    }
+
+    private void remove(TrieNode node, String word, int index) {
+
+//        Base case
+        if (index == word.length()) {
+            node.setEndOfWord(false);
+            return;
+        }
+
+        char ch = word.charAt(index);
+        TrieNode child = node.getChild(ch);
+        if (child == null) return;
+
+//        Recursive case
+        remove(child, word, ++index);
+
+//        Post-order traversal
+        if (!child.hasChildren() && !child.isEndOfWord())
+            node.removeChild(ch);
+
+    }
 }
