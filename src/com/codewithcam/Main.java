@@ -298,6 +298,12 @@ public class Main {
         trie.insert("fridge");
         trie.insert("frick");
         trie.insert("frog");
+        System.out.println(trie.contains("fridge"));
+        System.out.println(trie.contains("frick"));
+        System.out.println(trie.contains("frog"));
+        System.out.println(trie.contains("fro"));
+        System.out.println(trie.contains(""));
+        System.out.println(trie.contains("frack"));
 
 
     }

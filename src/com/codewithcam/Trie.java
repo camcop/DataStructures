@@ -66,5 +66,20 @@ public class Trie {
         current.setEndOfWord(true);
     }
 
+    public boolean contains(String word) {
+
+        if (word == null)
+            return false;
+
+        TrieNode current = root;
+        for (char c : word.toLowerCase().toCharArray()) {
+            if (!current.hasChild(c))
+                return false;
+            current = current.getChild(c);
+        }
+
+        return current.isEndOfWord();
+    }
+
 
 }
