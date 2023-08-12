@@ -305,11 +305,16 @@ public class Main {
 //        System.out.println(trie.contains(""));
 //        System.out.println(trie.contains("frack"));
 //        trie.traverse();
-        trie.remove("fridge");
-        trie.remove("dge");
-        trie.remove("");
-        trie.remove(null);
-        trie.traverse();
+//        trie.remove("fridge");
+//        trie.remove("dge");
+//        trie.remove("");
+//        trie.remove(null);
+//        trie.traverse();
+        System.out.println(trie.autocomplete("fr"));
+        System.out.println(trie.autocomplete("f"));
+        System.out.println(trie.autocomplete(""));
+        System.out.println(trie.autocomplete("g"));
+        System.out.println(trie.autocomplete(null));
 
     }
 
