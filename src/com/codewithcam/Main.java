@@ -298,6 +298,7 @@ public class Main {
         trie.insert("fridge");
         trie.insert("frick");
         trie.insert("frog");
+        trie.insert("dog");
 //        System.out.println(trie.contains("fridge"));
 //        System.out.println(trie.contains("frick"));
 //        System.out.println(trie.contains("frog"));
@@ -311,10 +312,12 @@ public class Main {
 //        trie.remove(null);
 //        trie.traverse();
         System.out.println(trie.autocomplete("fr"));
+        System.out.println(trie.autocomplete("fridge"));
         System.out.println(trie.autocomplete("f"));
         System.out.println(trie.autocomplete(""));
         System.out.println(trie.autocomplete("g"));
         System.out.println(trie.autocomplete(null));
+        System.out.println(trie.autocomplete("d"));
 
     }
 

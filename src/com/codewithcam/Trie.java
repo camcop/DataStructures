@@ -150,27 +150,24 @@ public class Trie {
                 return out;
             node = node.getChild(c);
         }
+        autocomplete(node, prefix, out);
 
-        return autocomplete(node, prefix, new ArrayList<>());
+        return out;
     }
 
-    private List<String> autocomplete(TrieNode node, String word, List<String> output) {
+    private void autocomplete(TrieNode node, String word, List<String> output) {
 
-//        Pre-order traversal (go logic before calling recursion on child)
+//        Pre-order traversal (do logic before calling recursion on child)
 //        Visit every node
 //        Add value to end of the word
 //        If node represents end of word, add to List output
 
-        if (!node.hasChildren())
-            return output;
+        if (node.isEndOfWord())
+            output.add(word);
 
-        for (TrieNode child : node.getChildren()) {
-            if (child.isEndOfWord())
-                output.add(word + child.value);
+        for (TrieNode child : node.getChildren())
             autocomplete(child, word + child.value, output);
-        }
 
-        return output;
     }
 
 
