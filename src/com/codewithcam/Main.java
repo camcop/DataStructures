@@ -327,6 +327,10 @@ public class Main {
         graph.addEdge("London", "Berlin");
         graph.addEdge("Paris", "Berlin");
         graph.print();
+        graph.removeEdge("London", "Paris");
+        graph.print();
+        graph.removeNode("London");
+        graph.print();
 
     }
 
