@@ -323,14 +323,17 @@ public class Main {
         graph.addNode("London");
         graph.addNode("Paris");
         graph.addNode("Berlin");
+        graph.addNode("Amsterdam");
         graph.addEdge("London", "Paris");
         graph.addEdge("London", "Berlin");
         graph.addEdge("Paris", "Berlin");
+        graph.addEdge("Berlin", "Amsterdam");
         graph.print();
-        graph.removeEdge("London", "Paris");
-        graph.print();
-        graph.removeNode("London");
-        graph.print();
+//        graph.removeEdge("London", "Paris");
+//        graph.print();
+//        graph.removeNode("London");
+//        graph.print();
+        graph.traverseDepthFirst("London");
 
     }
 
