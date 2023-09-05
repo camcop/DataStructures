@@ -34,7 +34,10 @@ public class Graph {
 
         Node toRemove = nodes.get(label);
         List<Node> list = adjacencyList.get(toRemove);
-        if (list == null) return;
+        if (list == null) {
+            nodes.remove(label);
+            return;
+        }
 
         for (Node node : list)
             adjacencyList.get(node).remove(toRemove);
