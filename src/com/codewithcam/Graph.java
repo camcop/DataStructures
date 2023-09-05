@@ -52,6 +52,8 @@ public class Graph {
         Node toNode = nodes.get(to);
         if (fromNode == null || toNode == null) throw new IllegalArgumentException();
 
+        if (adjacencyList.get(fromNode) == null || adjacencyList.get(fromNode).contains(toNode)) return;
+
         adjacencyList.get(fromNode).add(toNode);
     }
 
@@ -77,16 +79,20 @@ public class Graph {
 
     }
 
-    public void traverseDepthFirst(String node) {
-        traverseDepthFirst(nodes.get(node), new HashSet<Node>());
+    public void traverseDepthFirst(String string) {
+
+        Node node = nodes.get(string);
+        if (node == null) return;
+
+        traverseDepthFirst(node, new HashSet<>());
     }
 
     private void traverseDepthFirst(Node node, Set<Node> visited) {
 
-        System.out.println(node.toString());
-
         if (!visited.add(node))
             return;
+
+        System.out.println(node.toString());
 
         for (Node neighbour : adjacencyList.get(node))
             traverseDepthFirst(neighbour, visited);
