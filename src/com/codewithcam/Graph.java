@@ -145,12 +145,12 @@ public class Graph {
     public List<String> topologicalSort() {
 
         Stack<Node> stack = new Stack<>();
-        List<String> out = new ArrayList<>();
         Set<Node> visited = new HashSet<>();
 
         for (Node node : nodes.values())
             topologicalSort(node, stack, visited);
 
+        List<String> out = new ArrayList<>();
         while (!stack.isEmpty())
             out.add(stack.pop().toString());
 
@@ -159,10 +159,11 @@ public class Graph {
 
     private void topologicalSort(Node node, Stack<Node> stack, Set<Node> visited) {
 
-        visited.add(node);
+        if (!visited.add(node))
+            return;
 
         for (Node neighbour : adjacencyList.get(node))
-            traverseDepthFirst(neighbour, visited);
+            topologicalSort(neighbour, stack, visited);
 
         stack.push(node);
     }
