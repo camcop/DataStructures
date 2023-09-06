@@ -1,6 +1,7 @@
 package com.codewithcam;
 
 import java.util.HashMap;
+import java.util.Stack;
 import java.util.*;
 
 public class Graph {
@@ -96,6 +97,28 @@ public class Graph {
 
         for (Node neighbour : adjacencyList.get(node))
             traverseDepthFirst(neighbour, visited);
+    }
+
+    public void traverseDepthFirstIterative(String string) {
+
+        Node node = nodes.get(string);
+        if (node == null) return;
+
+        Set<Node> visited = new HashSet<>();
+        Stack<Node> stack = new Stack<>();
+        stack.push(node);
+
+        while (!stack.isEmpty()) {
+            Node current = stack.pop();
+            System.out.println(current);
+            visited.add(current);
+            for (Node neighbor : adjacencyList.get(current)) {
+                if (!visited.contains(neighbor))
+                    stack.push(neighbor);
+            }
+        }
+
+
     }
 
 
