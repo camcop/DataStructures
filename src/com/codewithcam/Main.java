@@ -337,6 +337,7 @@ public class Main {
         graph.addEdge("X", "B");
         graph.addEdge("A", "P");
         graph.addEdge("B", "P");
+        graph.addEdge("P", "X");
         graph.print();
 //        graph.removeEdge("London", "Paris");
 //        graph.print();
@@ -346,8 +347,10 @@ public class Main {
 //        graph.traverseDepthFirstIterative("London");
 //        graph.traverseBreadthFirstIterative("London");
 
-        for (String s : graph.topologicalSort())
-            System.out.println(s);
+//        for (String s : graph.topologicalSort())
+//            System.out.println(s);
+
+        System.out.println(graph.hasCycle());
         ;
     }
 
