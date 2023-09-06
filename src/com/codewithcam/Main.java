@@ -320,15 +320,23 @@ public class Main {
 //        System.out.println(trie.autocomplete("d"));
 
         Graph graph = new Graph();
-        graph.addNode("London");
-        graph.addNode("Paris");
-        graph.addNode("Berlin");
-        graph.addNode("Amsterdam");
-        graph.addEdge("London", "Paris");
-        graph.addEdge("London", "Berlin");
-        graph.addEdge("Paris", "Berlin");
-        graph.addEdge("Berlin", "Amsterdam");
-        graph.addEdge("Amsterdam", "London");
+//        graph.addNode("London");
+//        graph.addNode("Paris");
+//        graph.addNode("Berlin");
+//        graph.addNode("Amsterdam");
+//        graph.addEdge("London", "Paris");
+//        graph.addEdge("London", "Berlin");
+//        graph.addEdge("Paris", "Berlin");
+//        graph.addEdge("Berlin", "Amsterdam");
+//        graph.addEdge("Amsterdam", "London");
+        graph.addNode("X");
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("P");
+        graph.addEdge("X", "A");
+        graph.addEdge("X", "B");
+        graph.addEdge("A", "P");
+        graph.addEdge("B", "P");
         graph.print();
 //        graph.removeEdge("London", "Paris");
 //        graph.print();
@@ -336,8 +344,11 @@ public class Main {
 //        graph.print();
 //        graph.traverseDepthFirst("London");
 //        graph.traverseDepthFirstIterative("London");
-        graph.traverseBreadthFirstIterative("London");
+//        graph.traverseBreadthFirstIterative("London");
 
+        for (String s : graph.topologicalSort())
+            System.out.println(s);
+        ;
     }
 
 
