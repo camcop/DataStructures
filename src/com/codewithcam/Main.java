@@ -335,7 +335,8 @@ public class Main {
 //        graph.removeNode("London");
 //        graph.print();
 //        graph.traverseDepthFirst("London");
-        graph.traverseDepthFirstIterative("London");
+//        graph.traverseDepthFirstIterative("London");
+        graph.traverseBreadthFirstIterative("London");
 
     }
 

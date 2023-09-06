@@ -118,6 +118,27 @@ public class Graph {
             }
         }
 
+    }
+
+    public void traverseBreadthFirstIterative(String string) {
+
+        Node node = nodes.get(string);
+        if (node == null) return;
+
+        Set<Node> visited = new HashSet<>();
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(node);
+
+        while (!queue.isEmpty()) {
+            Node current = queue.remove();
+
+            if (visited.contains(current)) continue;
+
+            System.out.println(current);
+            visited.add(current);
+
+            queue.addAll(adjacencyList.get(current));
+        }
 
     }
 
